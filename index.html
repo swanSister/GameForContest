@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>game</title>
+	<link rel="stylesheet" href="lib/jquery.mobile-1.4.5.min.css" />
+	<script src="lib/jquery-1.11.1.min.js"></script>
+	<script src="lib/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="js/global.js"></script>
+	<script src="js/stageinfo.js"></script>
+</head>
+
+<body>
+	<audio id="bgSound" loop = "loop">
+		<source src="sound/bg.mp3" type="audio/mp3">
+	</audio>
+
+	<audio id="punchSound">
+		<source src="sound/punch.mp3" type="audio/mp3">
+	</audio>
+
+	<audio id="yeahSound">
+		<source src="sound/yeah.mp3" type="audio/mp3">
+	</audio>
+
+	<audio id="sighSound">
+		<source src="sound/sigh.mp3" type="audio/mp3">
+	</audio>
+
+  <div data-role="page" id="intro">
+    <div class="content" data-role="content">
+	<div id="loading">
+
+	</div>
+      <div id="introTitle" class="text-border">
+        <span class="yellow">프렌즈</span>&nbsp;콤보팡!
+      </div>
+	  <div id="scoreBoard">
+	  <div class="background"></div>
+		<div  class="content text-border-thin"><div class="first"><img src="images/score_1.png"/><span>전체 최고 점수</span><img src="images/score_5.png"/></div><div class="second">.</div></div>
+		<div  class="content text-border-thin"><div class="first"><img src="images/score_2.png"/>내 총 점수<img src="images/score_5.png"/></div><div id="myBestScore" class="second"></div></div>
+		<div  class="content text-border-thin"><div class="first"><img src="images/score_3.png"/>내 랭킹<img src="images/score_5.png"/></div><div class="second">.</div></div>
+		<div  class="content text-border-thin"><div class="first"><img src="images/score_4.png"/>지난주 내 랭킹<img src="images/score_5.png"/></div><div class="second">.</div></div>
+	  </div>
+      <img id="introBg" src="images/intro_bg.png"/>
+       <div id="introStartBtn" class="text-border"><div>게임 시작</div></div>
+  </div>
+    <script src="js/intro.js"></script>
+  </div>
+	<div data-role="page" id="way">
+		<div class="content" data-role="content">
+		<div id="wayContent">
+		<div class="title text-border">게임 방법</div>
+		<div class="title"><span class="circle-span">1</span> 커지는 프렌즈를 눌러 점수를 얻으세요.  </div>
+		<img class="way-img small" src="images/way_click.png"/>
+		<div class="title"><span class="circle-span">2</span> 스테이지 <p>달성 조건 </p>을 만족하세요. </div>
+		<img class="way-img" src="images/way_condition.png"/>
+		<div class="title"><span class="circle-span">3</span> 프렌즈를 누르는 <p>순서</p>에 따라 <br> 콤보가 발생합니다.</span> </div>
+		<img class="way-img" src="images/way_combo.png"/>
+		<div id="startBtn" class="text-border"><div>확인</div></div>
+		</div>
+		</div>
+		<script src="js/way.js"></script>
+	</div>
+
+	<div data-role="page" id="stage">
+		<div class="content" data-role="content" id="stageContent">
+		<img class="cloud first" src="images/cloud1.png"/>
+		<img class="cloud second" src="images/cloud2.png"/>
+		<img class="cloud third" src="images/cloud1.png"/>
+		<hr width="1">
+		<div id="stageBtnContent">
+		<div id="stageBtn8" class="stage-btn"><img src="images/8_stage_clear.png"/></div>
+		<div id="stageBtn7" class="stage-btn"><img src="images/7_stage_clear.png"/></div>
+		<div id="stageBtn6" class="stage-btn"><img src="images/6_stage_clear.png"/></div>
+		<div id="stageBtn5" class="stage-btn"><img src="images/5_stage_clear.png"/></div>
+		<div id="stageBtn4" class="stage-btn"><img src="images/4_stage_clear.png"/></div>
+		<div id="stageBtn3" class="stage-btn"><img src="images/3_stage_clear.png"/></div>
+		<div id="stageBtn2" class="stage-btn"><img src="images/2_stage_clear.png"/></div>
+		<div id="stageBtn1" class="stage-btn"><img src="images/1_stage_clear.png"/></div>
+		</div>
+		<div class="stage-bg"></div>
+		</div>
+		<script src="js/stage.js"></script>
+	</div>
+
+  <div data-role="page" id="game">
+     <div class="content" data-role="content">
+	       <div id="stageExplain">
+        		  <div id="stageTitle" class="text-border"></div>
+        		  <div id="clearCondition">
+          			<div class="text-border">스테이지 달성조건</div>
+          			<div id="stageClearScore"><span class="circle-span">1</span>300점 달성</div>
+          			<div id="stageClearCombo"><span class="circle-span">2</span><img src="images/1.gif"/><img src="images/arrow.png"/><img src="images/2.gif"/></div>
+    	        </div>
+        		 <div id="stageBasicCombo" class="text-border">기본 조합</div>
+        		 <div id="stageComboExplain"></div>
+        		 <div id="stageStartBtn" class="text-border"><div>게임 시작</div></div>
+	        </div>
+          <div id = "gameEndPopup">
+            <div id="gameEndContent">
+              <div class="background-gray">
+                <div class="background-white">
+                  <div id="endTitle">GAME OVER</div>
+                  <div id="endScore" class="text-border-thin">500점</div>
+                </div>
+              </div>
+              <div id="gameEndPopupRetryBtn" class="text-border-thin"><div>다시하기</div></div>
+              <div id="gameEndPopupNextBtn" class="text-border-thin"><div>다음 스테이지</div></div>
+            </div>
+          </div>
+        <div id="gamePlayContent">
+          <div id = "alertPopup"><div id="alertPopupMessage" class="text-border"></div></div>
+		  <div id="score">
+		    <div class="score-content">
+			  <div id="scoreText" class="text-border"></div>
+			  <div id="bestText" class="text-border">0</div>
+			</div>
+		  </div>
+		 
+		  <div id="timeBar">
+			  <div id="timeBarInner"></div>
+			  <div id="timeFeverBarInner"></div>
+		  </div>
+		  <div id="map"></div>
+          <div id="comboExplain"></div>
+		  <div id="textEffect" class="text-border-thin"></div>
+        </div>
+	  </div>
+	  <script src="js/game.js"></script>
+    </div>
+
+</body>
+</html>
